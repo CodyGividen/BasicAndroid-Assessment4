@@ -12,7 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by rodneytressler on 12/17/17.
+ * Created by cody gividen on 12/17/17.
  */
 
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerViewholder> {
@@ -31,7 +31,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
 
     @Override
     public void onBindViewHolder(PlayerViewholder holder, int position) {
-        holder.bindPlayer(playerList.get(position));
+        holder.bindPlayer(position);
     }
 
     @Override
@@ -55,7 +55,11 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
             ButterKnife.bind(this, itemView);
         }
 
-        public void bindPlayer(Player player) {
+        public void bindPlayer(int position) {
+            playerName.setText(playerList.get(position).getPlayerName());
+            playerNumber.setText(playerList.get(position).getPlayerNumber());
+            playerTeam.setText(playerList.get(position).getTeam());
+
 
         }
     }
